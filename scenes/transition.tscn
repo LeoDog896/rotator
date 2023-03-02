@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/transition.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float whitening : hint_range(-1, 1);
+
+void fragment() {
+	COLOR = vec4(0);
+	if (whitening > 0.f) {
+		if (UV.x > whitening) {
+			COLOR.a = 1.f;
+		}
+	} else {
+		if (UV.x < whitening + 1.f) {
+			COLOR.a = 1.f;
+		}
+	}
+}
+"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/whitening = -0.046
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_new_tween_complete"]

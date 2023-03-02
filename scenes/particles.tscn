@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://particles/ambient.tres" type="Material" id=1]
+
+[node name="Particles2D" type="Particles2D"]
+position = Vector2( 260.537, 147.519 )
+amount = 40
+lifetime = 16.0
+preprocess = 40.0
+speed_scale = 0.25
+visibility_rect = Rect2( -100, -100, 500, 200 )
+draw_order = 1
+process_material = ExtResource( 1 )
