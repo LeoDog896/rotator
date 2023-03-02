@@ -5,14 +5,14 @@ export var gravity    : float = 490 # opposite Y speed
 export var jump       : float = 235 # Y jump power
 export var next_level : String = "res://scenes/levels/level1/index.tscn"
 
-var gravity_direction : Vector2 = Vector2.DOWN
-var velocity : Vector2 = Vector2.ZERO
-var rotating : bool = false
+var gravity_direction := Vector2.DOWN
+var velocity := Vector2.ZERO
+var rotating := false
 
-var can_play_land = true
+var can_play_land := true
 
-onready var spawn_position : Vector2 = position
-onready var map = get_parent().get_node("TileMap")
+onready var spawn_position := position
+onready var map := get_parent().get_node("TileMap")
 
 func get_input():
 	if Input.get_action_strength("ui_left"):
@@ -42,11 +42,11 @@ func get_input():
 			gravity_direction = gravity_direction.rotated(PI)
 			rotating = true	
 			#camera functions
-			var tween = $PlayerBody/Tween
+			var tween := $PlayerBody/Tween
 			tween.interpolate_property($Camera2D, "rotation_degrees", $Camera2D.rotation_degrees, $Camera2D.rotation_degrees + 180, 0.3)
 			tween.start()
 			
-			var arrowTween = $Arrow/Tween
+			var arrowTween := $Arrow/Tween
 			arrowTween.interpolate_property($Arrow, "rotation_degrees", $Arrow.rotation_degrees, $Arrow.rotation_degrees + 180, 0.5)
 			arrowTween.start()
 	
@@ -62,24 +62,22 @@ func _physics_process(delta):
 		$Land.play()
 		can_play_land = false
 	
-	for i in range(get_slide_count()):
-		var collision = get_slide_collision(i)
-		var cell = map.world_to_map(collision.position - collision.normal)
-		var tile_id = map.get_cellv(cell)
-		if tile_id == 4:
-			$Death.play()
-			$PlayerBody/Tween.stop_all()
-			$Arrow/Tween.stop_all()
-			rotating = false
-			position = spawn_position
-			$Camera2D.rotation_degrees = 0
-			$Arrow.rotation_degrees = 90
-			gravity_direction = Vector2.DOWN
-			velocity = Vector2.ZERO
+	var cell: Vector2 = map.world_to_map(position)
+	var tile_id: int = map.get_cellv(cell)
+	if tile_id == 4:
+		$Death.play()
+		$PlayerBody/Tween.stop_all()
+		$Arrow/Tween.stop_all()
+		rotating = false
+		position = spawn_position
+		$Camera2D.rotation_degrees = 0
+		$Arrow.rotation_degrees = 90
+		gravity_direction = Vector2.DOWN
+		velocity = Vector2.ZERO
 
 func _process(_delta):
-	var cell = map.world_to_map(position)
-	var tile_id = map.get_cellv(cell)
+	var cell: Vector2 = map.world_to_map(position)
+	var tile_id: int = map.get_cellv(cell)
 	if tile_id == 1:
 		get_tree().paused = true
 		$Camera2D/ColorRect.start_out_tween()
