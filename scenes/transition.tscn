@@ -20,7 +20,6 @@ void fragment() {
 	}
 }
 "
-custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
@@ -37,4 +36,5 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_new_tween_complete"]

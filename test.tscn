@@ -9,7 +9,6 @@ void fragment() {
 	vec3 col = texture(TEXTURE, UV).rgb;
 	COLOR.xyz = col * vec3(-1) + vec3(1);
 }"
-custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
@@ -31,5 +30,7 @@ __meta__ = {
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1024, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
 
 [node name="Node2D" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]

@@ -65,4 +65,5 @@ margin_top = 183.0
 margin_right = 601.0
 margin_bottom = 383.0
 rect_min_size = Vector2( 600, 200 )
+
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Button" to="Panel/CenterContainer/VBoxContainer/Button" method="_on_Button_pressed"]
