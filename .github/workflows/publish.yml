@@ -1,6 +1,11 @@
 name: "godot-ci export"
 on: push
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 env:
   GODOT_VERSION: 3.3.4
   EXPORT_NAME: test-project
