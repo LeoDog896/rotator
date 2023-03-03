@@ -10,7 +10,12 @@ env:
   GODOT_VERSION: 3.3.4
   EXPORT_NAME: test-project
   PROJECT_PATH: test-project
-  
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
   export-web:
     name: Web Export
