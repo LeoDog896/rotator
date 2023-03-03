@@ -17,8 +17,6 @@ func start_out_tween():
 func _on_new_tween_complete():
 	if endTween:
 		print(get_parent().get_parent().next_level)
-		var err := get_tree().change_scene(get_parent().get_parent().next_level)
-		if err != OK:
-			print(err)
+		get_tree().change_scene(get_parent().get_parent().next_level)
 	else:
 		get_tree().paused = false
