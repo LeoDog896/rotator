@@ -7,9 +7,10 @@ permissions:
   id-token: write
 
 env:
-  GODOT_VERSION: 3.5.1
+  GODOT_VERSION: 3.5.2
   EXPORT_NAME: test-project
   PROJECT_PATH: test-project
+  RELEASE_NAME: rc2
 
 # Allow one concurrent deployment
 concurrency:
@@ -27,8 +28,8 @@ jobs:
           lfs: true
       - name: Download Godot
         run: |
-          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip \
-          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz
           unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip
           mv Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64 godot
           unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz
