@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://themes/theme.tres" type="Theme" id=1]
 [ext_resource path="res://title_nobkg.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scripts/CreditsButton.gd" type="Script" id=5]
 [ext_resource path="res://scripts/ExitButton.gd" type="Script" id=6]
 [ext_resource path="res://scripts/ShadingMenuAnimation.gd" type="Script" id=7]
-[ext_resource path="res://particles/ambient.tres" type="Material" id=8]
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -30,19 +29,30 @@ bg_color = Color( 0.305882, 0.305882, 0.305882, 0.737255 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 504.962, 270.991 )
 amount = 40
 lifetime = 16.0
 preprocess = 40.0
 speed_scale = 0.25
-visibility_rect = Rect2( -100, -100, 500, 200 )
 draw_order = 1
-process_material = ExtResource( 8 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 338.33
+initial_velocity_random = 0.47
+angular_velocity = 49.66
+angular_velocity_random = 1.0
+radial_accel = -62.07
+angle = 50.0
+angle_random = 0.43
+scale_amount = 69.97
+scale_amount_random = 0.66
+color = Color( 0.443137, 0.443137, 0.443137, 0.329412 )
+hue_variation_random = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 3 )
