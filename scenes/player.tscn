@@ -58,7 +58,6 @@ editor_draw_drag_margin = true
 
 [node name="ColorRect" parent="Camera2D" instance=ExtResource( 8 )]
 pause_mode = 2
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -600.0
