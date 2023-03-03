@@ -8,8 +8,6 @@ permissions:
 
 env:
   GODOT_VERSION: 3.5.2
-  EXPORT_NAME: test-project
-  PROJECT_PATH: test-project
   RELEASE_NAME: rc2
 
 # Allow one concurrent deployment
@@ -23,9 +21,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          lfs: true
+          fetch-depth: 0
       - name: Download Godot
         run: |
           wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip
@@ -33,7 +31,8 @@ jobs:
           unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip
           mv Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64 godot
           unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz
-          mv templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.${RELEASE_NAME} 
+          mkdir -p ~/.local/share/godot/templates/${GODOT_VERSION}.${RELEASE_NAME}
+          mv templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.${RELEASE_NAME}
       - name: Web Build
         run: |
           mkdir -v -p build/web
