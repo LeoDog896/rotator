@@ -4,3 +4,6 @@ By @jonot-cyber and @LeoDog896
 
 There are some patches applied to the original game:
 - Make spike collsion more friendly
+- Updates godot
+- Centers UI to be friendly on web
+- Uses player tile as favicon
