@@ -23,9 +23,10 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/whitening = -0.046
+shader_param/whitening = 0.0
 
 [node name="ColorRect" type="ColorRect"]
+visible = false
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0

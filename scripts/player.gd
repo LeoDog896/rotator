@@ -79,8 +79,8 @@ func _process(_delta):
 	var cell: Vector2 = map.world_to_map(position)
 	var tile_id: int = map.get_cellv(cell)
 	if tile_id == 1:
-		get_tree().paused = true
 		$Camera2D/ColorRect.start_out_tween()
+		get_tree().paused = true
 
 func is_on_ground():
 	return (is_on_floor() and gravity_direction.y != 1) or (is_on_ceiling())

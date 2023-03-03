@@ -36,8 +36,8 @@ margin_left = 52.7557
 margin_top = 50.5108
 margin_right = 350.756
 margin_bottom = 80.5108
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "Try pressing R (Or CTRL)"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,4 +53,5 @@ autostart = true
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 170, 284 )
 next_level = "res://scenes/levels/level4/index.tscn"
+
 [connection signal="timeout" from="customtext/Timer" to="customtext" method="_on_Timer_timeout"]
