@@ -1,13 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=2]
 
-[ext_resource path="res://particles/ambient.tres" type="Material" id=1]
-
-[node name="Particles2D" type="Particles2D"]
+[node name="Particles2D" type="CPUParticles2D"]
 position = Vector2( 260.537, 147.519 )
 amount = 40
 lifetime = 16.0
 preprocess = 40.0
 speed_scale = 0.25
-visibility_rect = Rect2( -100, -100, 500, 200 )
 draw_order = 1
-process_material = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 338.33
+initial_velocity_random = 0.47
+angular_velocity = 49.66
+angular_velocity_random = 1.0
+radial_accel = -62.07
+angle = 50.0
+angle_random = 0.43
+scale_amount = 69.97
+scale_amount_random = 0.66
+color = Color( 0.443137, 0.443137, 0.443137, 0.329412 )
+hue_variation_random = 1.0
