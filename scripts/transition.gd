@@ -15,6 +15,7 @@ func start_out_tween():
 	$Tween.start()
 
 func _on_new_tween_complete():
+	print(endTween)
 	if endTween:
 		assert(get_tree().change_scene(get_parent().get_parent().next_level) == OK)
 	else:
