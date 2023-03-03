@@ -18,6 +18,7 @@ func _on_new_tween_complete():
 	if endTween:
 		print(get_parent().get_parent().next_level)
 		var err := get_tree().change_scene(get_parent().get_parent().next_level)
-		assert(err == OK, "could not change to scene: " + str(err))
+		if err != OK:
+			print(err)
 	else:
 		get_tree().paused = false
