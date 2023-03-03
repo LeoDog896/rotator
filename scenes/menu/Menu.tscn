@@ -59,9 +59,6 @@ material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShadingAnimation" type="Tween" parent="ColorRect"]
 
@@ -75,15 +72,14 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
-margin_top = 25.1456
-margin_right = 1024.0
-margin_bottom = 517.146
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
 margin_left = 197.0
-margin_top = 32.0
+margin_top = 86.0
 margin_right = 827.0
-margin_bottom = 460.0
+margin_bottom = 514.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
