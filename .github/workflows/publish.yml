@@ -20,17 +20,19 @@ jobs:
   export-web:
     name: Web Export
     runs-on: ubuntu-20.04
-    container:
-      image: barichello/godot-ci:3.5.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           lfs: true
-      - name: Setup
+      - name: Download Godot
         run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip \
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
+          unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64.zip
+          mv Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux_headless.64 godot
+          unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz
+          mv templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.${RELEASE_NAME} 
       - name: Web Build
         run: |
           mkdir -v -p build/web
