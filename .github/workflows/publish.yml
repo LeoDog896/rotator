@@ -36,15 +36,13 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          godot -v --export "HTML5" ./build/web/index.html
+          chmod +x ./godot
+          ./godot -v --export "HTML5" ./build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
           name: web
           path: build/web
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
